@@ -13,8 +13,7 @@ LINK="$(python -c 'import sysconfig;print(sysconfig.get_config_var("LDCXXSHARED"
 # If those mismatch and it crosses a PYBIND11_INTERNALS_VERSION version bump,
 # modules won't be able to share types.
 
-#FIX_FLAGS=-DPYBIND11_BUILD_ABI='"_cxxabi1011"'
-FIX_FLAGS=
+FIX_FLAGS="-fabi-version=11 -DPYBIND11_COMPILER_TYPE=\"_gcc\""
 
 # Pybind forks its world based on what it computes for its PYBIND11_INTERNALS_ID.
 # Components of this that are likely to change on a Linux system are
